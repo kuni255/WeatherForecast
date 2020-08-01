@@ -20,7 +20,7 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            MasterView(dates: $dates)
+            MainView(dates: $dates)
                 .navigationBarTitle(Text("Master"))
                 .navigationBarItems(
                     leading: EditButton(),
@@ -37,7 +37,7 @@ struct ContentView: View {
     }
 }
 
-struct MasterView: View {
+struct MainView: View {
     @Binding var dates: [Date]
 
     var body: some View {
