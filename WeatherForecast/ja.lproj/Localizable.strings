@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  WeatherForecast
+
+  Created by Kuniie Hayato on 8/2/20.
+  Copyright © 2020 Kuniie Hayato. All rights reserved.
+*/
+"WeatherDescription_DetailView" = "概況";
+"ProbabilityOfPrecipitation_DetailView" = "降水確率 (%)";
+"MaxTemp_DetailView" = "最高気温 (℃)";
+"MinTemp_DetailView" = "最低気温 (℃)";
+"WindSpeed_DetailView" = "風速 (m/sec)";
+"WindDirection_DetailView" = "風向 (degree)";
+"Humidity_DetailView" = "湿度 (%)";
+"Pressure_DetailView" = "気圧 (hPa)";
+"UIV_DetailView" = "紫外線指数";
+"Sunrise_DetailView" = "日の出";
+"Sunset_DetailView" = "日の入り";

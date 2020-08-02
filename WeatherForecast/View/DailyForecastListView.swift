@@ -10,9 +10,14 @@ import SwiftUI
 
 struct DailyForecastListView: View {
     var body: some View {
-        List(sampleData.dailyForecaastData){ forecastData in
-            DailyForecastRowView(forecastData: forecastData, weatherIcon: sampleIcon)
+        NavigationView{
+            List(sampleData.dailyForecaastData){ forecastData in
+                NavigationLink(destination: DailyForecastDetailView(forecastData: forecastData, weatherIcon: sampleIcon)){
+                    DailyForecastRowView(forecastData: forecastData, weatherIcon: sampleIcon)
+                }
+            }
         }
+            .navigationBarItems(leading: Text("Weather forecast"))
     }
 }
 
