@@ -53,7 +53,7 @@ struct DailyForecastRowView: View {
     }
     
     func getProbabilityOfPrecipitation(_ prop: Double) -> String{
-        return String(format: "%.0f %%", prop)
+        return String(format: "%.0f %%", prop*100)
     }
 }
 

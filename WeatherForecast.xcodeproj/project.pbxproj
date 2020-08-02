@@ -24,6 +24,11 @@
 		4A50183724D5A0AB00CCB9A7 /* OWWeatherDataSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50183624D5A0AB00CCB9A7 /* OWWeatherDataSample.swift */; };
 		4A50183924D5B8B500CCB9A7 /* WeatherIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50183824D5B8B500CCB9A7 /* WeatherIcons.swift */; };
 		4A50183B24D6457D00CCB9A7 /* DailyForecastListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50183A24D6457D00CCB9A7 /* DailyForecastListView.swift */; };
+		4A50183D24D6503000CCB9A7 /* DailyForecastDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50183C24D6503000CCB9A7 /* DailyForecastDetailView.swift */; };
+		4A50183F24D6525700CCB9A7 /* DailyForecastDetailBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50183E24D6525700CCB9A7 /* DailyForecastDetailBodyView.swift */; };
+		4A50184424D6558900CCB9A7 /* Localizeable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A50184824D6558900CCB9A7 /* Localizeable.strings */; };
+		4A50184524D6558900CCB9A7 /* Localizeable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A50184824D6558900CCB9A7 /* Localizeable.strings */; };
+		4A50184624D6558900CCB9A7 /* Localizeable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A50184824D6558900CCB9A7 /* Localizeable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +70,11 @@
 		4A50183624D5A0AB00CCB9A7 /* OWWeatherDataSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWWeatherDataSample.swift; sourceTree = "<group>"; };
 		4A50183824D5B8B500CCB9A7 /* WeatherIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIcons.swift; sourceTree = "<group>"; };
 		4A50183A24D6457D00CCB9A7 /* DailyForecastListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastListView.swift; sourceTree = "<group>"; };
+		4A50183C24D6503000CCB9A7 /* DailyForecastDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastDetailView.swift; sourceTree = "<group>"; };
+		4A50183E24D6525700CCB9A7 /* DailyForecastDetailBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastDetailBodyView.swift; sourceTree = "<group>"; };
+		4A50184724D6558900CCB9A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizeable.strings; sourceTree = "<group>"; };
+		4A50184924D655D000CCB9A7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4A50184A24D655D000CCB9A7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizeable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +125,7 @@
 		4A50170A24D0CF8C00CCB9A7 /* WeatherForecast */ = {
 			isa = PBXGroup;
 			children = (
+				4A50184824D6558900CCB9A7 /* Localizeable.strings */,
 				4A50183324D59CDA00CCB9A7 /* View */,
 				4A50182924D59A0600CCB9A7 /* Data */,
 				4A50170B24D0CF8C00CCB9A7 /* AppDelegate.swift */,
@@ -170,7 +181,9 @@
 			children = (
 				4A50183424D59D1400CCB9A7 /* DailyForecastRowView.swift */,
 				4A50183A24D6457D00CCB9A7 /* DailyForecastListView.swift */,
+				4A50183C24D6503000CCB9A7 /* DailyForecastDetailView.swift */,
 				4A50183824D5B8B500CCB9A7 /* WeatherIcons.swift */,
+				4A50183E24D6525700CCB9A7 /* DailyForecastDetailBodyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -261,6 +274,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 4A5016FF24D0CF8C00CCB9A7;
 			productRefGroup = 4A50170924D0CF8C00CCB9A7 /* Products */;
@@ -280,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A50183224D59C2B00CCB9A7 /* miyazaki.json in Resources */,
+				4A50184424D6558900CCB9A7 /* Localizeable.strings in Resources */,
 				4A50171824D0CF8E00CCB9A7 /* LaunchScreen.storyboard in Resources */,
 				4A50171524D0CF8E00CCB9A7 /* Preview Assets.xcassets in Resources */,
 				4A50171224D0CF8E00CCB9A7 /* Assets.xcassets in Resources */,
@@ -291,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A50182E24D59A6E00CCB9A7 /* miyazaki.json in Resources */,
+				4A50184524D6558900CCB9A7 /* Localizeable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +314,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A50184624D6558900CCB9A7 /* Localizeable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,10 +326,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A50183724D5A0AB00CCB9A7 /* OWWeatherDataSample.swift in Sources */,
+				4A50183D24D6503000CCB9A7 /* DailyForecastDetailView.swift in Sources */,
 				4A50170C24D0CF8C00CCB9A7 /* AppDelegate.swift in Sources */,
 				4A50183924D5B8B500CCB9A7 /* WeatherIcons.swift in Sources */,
 				4A50170E24D0CF8C00CCB9A7 /* SceneDelegate.swift in Sources */,
 				4A50183524D59D1400CCB9A7 /* DailyForecastRowView.swift in Sources */,
+				4A50183F24D6525700CCB9A7 /* DailyForecastDetailBodyView.swift in Sources */,
 				4A50182B24D59A2D00CCB9A7 /* OWWeatherData.swift in Sources */,
 				4A50171024D0CF8C00CCB9A7 /* ContentView.swift in Sources */,
 				4A50183B24D6457D00CCB9A7 /* DailyForecastListView.swift in Sources */,
@@ -357,8 +376,19 @@
 			isa = PBXVariantGroup;
 			children = (
 				4A50171724D0CF8E00CCB9A7 /* Base */,
+				4A50184924D655D000CCB9A7 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4A50184824D6558900CCB9A7 /* Localizeable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A50184724D6558900CCB9A7 /* en */,
+				4A50184A24D655D000CCB9A7 /* ja */,
+			);
+			name = Localizeable.strings;
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -368,6 +398,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -428,6 +459,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct DailyForecastListView: View {
     var body: some View {
-        List(sampleData.dailyForecaastData, id: \.time){ forecastData in
+        List(sampleData.dailyForecaastData){ forecastData in
             DailyForecastRowView(forecastData: forecastData, weatherIcon: sampleIcon)
         }
     }
