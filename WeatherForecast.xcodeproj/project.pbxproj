@@ -19,6 +19,10 @@
 		4A50182E24D59A6E00CCB9A7 /* miyazaki.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A50182D24D59A6E00CCB9A7 /* miyazaki.json */; };
 		4A50183024D59A7700CCB9A7 /* OWWeatherDataDecodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50182F24D59A7700CCB9A7 /* OWWeatherDataDecodeTests.swift */; };
 		4A50183124D59AA400CCB9A7 /* OWWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50182A24D59A2D00CCB9A7 /* OWWeatherData.swift */; };
+		4A50183224D59C2B00CCB9A7 /* miyazaki.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A50182D24D59A6E00CCB9A7 /* miyazaki.json */; };
+		4A50183524D59D1400CCB9A7 /* DailyForecastRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50183424D59D1400CCB9A7 /* DailyForecastRowView.swift */; };
+		4A50183724D5A0AB00CCB9A7 /* OWWeatherDataSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50183624D5A0AB00CCB9A7 /* OWWeatherDataSample.swift */; };
+		4A50183924D5B8B500CCB9A7 /* WeatherIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50183824D5B8B500CCB9A7 /* WeatherIcons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +60,9 @@
 		4A50182A24D59A2D00CCB9A7 /* OWWeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OWWeatherData.swift; sourceTree = "<group>"; };
 		4A50182D24D59A6E00CCB9A7 /* miyazaki.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = miyazaki.json; sourceTree = "<group>"; };
 		4A50182F24D59A7700CCB9A7 /* OWWeatherDataDecodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OWWeatherDataDecodeTests.swift; sourceTree = "<group>"; };
+		4A50183424D59D1400CCB9A7 /* DailyForecastRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastRowView.swift; sourceTree = "<group>"; };
+		4A50183624D5A0AB00CCB9A7 /* OWWeatherDataSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWWeatherDataSample.swift; sourceTree = "<group>"; };
+		4A50183824D5B8B500CCB9A7 /* WeatherIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIcons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +113,7 @@
 		4A50170A24D0CF8C00CCB9A7 /* WeatherForecast */ = {
 			isa = PBXGroup;
 			children = (
+				4A50183324D59CDA00CCB9A7 /* View */,
 				4A50182924D59A0600CCB9A7 /* Data */,
 				4A50170B24D0CF8C00CCB9A7 /* AppDelegate.swift */,
 				4A50170D24D0CF8C00CCB9A7 /* SceneDelegate.swift */,
@@ -129,7 +137,6 @@
 		4A50172124D0CF8E00CCB9A7 /* WeatherForecastTests */ = {
 			isa = PBXGroup;
 			children = (
-				4A50182C24D59A5F00CCB9A7 /* Data */,
 				4A50172224D0CF8E00CCB9A7 /* WeatherForecastTests.swift */,
 				4A50182F24D59A7700CCB9A7 /* OWWeatherDataDecodeTests.swift */,
 				4A50172424D0CF8E00CCB9A7 /* Info.plist */,
@@ -150,16 +157,19 @@
 			isa = PBXGroup;
 			children = (
 				4A50182A24D59A2D00CCB9A7 /* OWWeatherData.swift */,
+				4A50183624D5A0AB00CCB9A7 /* OWWeatherDataSample.swift */,
+				4A50182D24D59A6E00CCB9A7 /* miyazaki.json */,
 			);
 			path = Data;
 			sourceTree = "<group>";
 		};
-		4A50182C24D59A5F00CCB9A7 /* Data */ = {
+		4A50183324D59CDA00CCB9A7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4A50182D24D59A6E00CCB9A7 /* miyazaki.json */,
+				4A50183424D59D1400CCB9A7 /* DailyForecastRowView.swift */,
+				4A50183824D5B8B500CCB9A7 /* WeatherIcons.swift */,
 			);
-			path = Data;
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +276,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A50183224D59C2B00CCB9A7 /* miyazaki.json in Resources */,
 				4A50171824D0CF8E00CCB9A7 /* LaunchScreen.storyboard in Resources */,
 				4A50171524D0CF8E00CCB9A7 /* Preview Assets.xcassets in Resources */,
 				4A50171224D0CF8E00CCB9A7 /* Assets.xcassets in Resources */,
@@ -294,8 +305,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A50183724D5A0AB00CCB9A7 /* OWWeatherDataSample.swift in Sources */,
 				4A50170C24D0CF8C00CCB9A7 /* AppDelegate.swift in Sources */,
+				4A50183924D5B8B500CCB9A7 /* WeatherIcons.swift in Sources */,
 				4A50170E24D0CF8C00CCB9A7 /* SceneDelegate.swift in Sources */,
+				4A50183524D59D1400CCB9A7 /* DailyForecastRowView.swift in Sources */,
 				4A50182B24D59A2D00CCB9A7 /* OWWeatherData.swift in Sources */,
 				4A50171024D0CF8C00CCB9A7 /* ContentView.swift in Sources */,
 			);
