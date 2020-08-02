@@ -111,7 +111,7 @@ struct OWDailyForecastWeatherConditionData: Codable{
     }
 }
 
-struct OWDailyForecastWeatherData: Codable{
+struct OWDailyForecastWeatherData: Codable, Identifiable{
     var time: Date!
     var sunriseTime: Date!
     var sunsetTime: Date!
@@ -130,6 +130,11 @@ struct OWDailyForecastWeatherData: Codable{
     var probabilityOfPrecipitation: Double
     var rainVolume: Int?
     var snowVolume: Int?
+    
+    //MARK: Identifiable
+    var id: Date{
+        return time
+    }
     
     enum CodingKeys: String, CodingKey{
         case time = "dt"

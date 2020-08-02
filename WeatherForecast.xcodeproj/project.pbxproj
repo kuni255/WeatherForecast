@@ -23,6 +23,7 @@
 		4A50183524D59D1400CCB9A7 /* DailyForecastRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50183424D59D1400CCB9A7 /* DailyForecastRowView.swift */; };
 		4A50183724D5A0AB00CCB9A7 /* OWWeatherDataSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50183624D5A0AB00CCB9A7 /* OWWeatherDataSample.swift */; };
 		4A50183924D5B8B500CCB9A7 /* WeatherIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50183824D5B8B500CCB9A7 /* WeatherIcons.swift */; };
+		4A50183B24D6457D00CCB9A7 /* DailyForecastListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50183A24D6457D00CCB9A7 /* DailyForecastListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		4A50183424D59D1400CCB9A7 /* DailyForecastRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastRowView.swift; sourceTree = "<group>"; };
 		4A50183624D5A0AB00CCB9A7 /* OWWeatherDataSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWWeatherDataSample.swift; sourceTree = "<group>"; };
 		4A50183824D5B8B500CCB9A7 /* WeatherIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIcons.swift; sourceTree = "<group>"; };
+		4A50183A24D6457D00CCB9A7 /* DailyForecastListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				4A50183424D59D1400CCB9A7 /* DailyForecastRowView.swift */,
+				4A50183A24D6457D00CCB9A7 /* DailyForecastListView.swift */,
 				4A50183824D5B8B500CCB9A7 /* WeatherIcons.swift */,
 			);
 			path = View;
@@ -312,6 +315,7 @@
 				4A50183524D59D1400CCB9A7 /* DailyForecastRowView.swift in Sources */,
 				4A50182B24D59A2D00CCB9A7 /* OWWeatherData.swift in Sources */,
 				4A50171024D0CF8C00CCB9A7 /* ContentView.swift in Sources */,
+				4A50183B24D6457D00CCB9A7 /* DailyForecastListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
