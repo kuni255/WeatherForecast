@@ -8,6 +8,7 @@
 
 import Foundation
 
+let LCS_Title_ListView = NSLocalizedString("Title_ListView", comment: "")
 let LCS_WeatherDescription_DetailView = NSLocalizedString("WeatherDescription_DetailView", comment: "")
 let LCS_ProbabilityOfPrecipitation_DetailView = NSLocalizedString("ProbabilityOfPrecipitation_DetailView", comment: "")
 let LCS_MaxTemp_DetailView = NSLocalizedString("MaxTemp_DetailView", comment: "")

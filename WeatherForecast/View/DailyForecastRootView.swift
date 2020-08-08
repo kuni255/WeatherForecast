@@ -1,0 +1,60 @@
+//
+//  DailyForecastRootView.swift
+//  WeatherForecast
+//
+//  Created by Kuniie Hayato on 8/4/20.
+//  Copyright © 2020 Kuniie Hayato. All rights reserved.
+//
+import Combine
+import CoreLocation
+import os
+import SwiftUI
+
+enum DailyForecastRootViewState{
+    case noData
+    case retrievingData
+    case listingData
+}
+
+struct DailyForecastListViewLoadButton: View{
+    var body: some View{
+        Text("Test")
+    }
+}
+
+func StartDownloadingData(){
+    
+}
+
+struct DailyForecastRootView: View {
+    @ObservedObject var delegate: DailyForecastRootViewDelegate
+    
+    @State private var forecastListView: DailyForecastListView?
+    
+    init(delegate: DailyForecastRootViewDelegate){
+        self.delegate = delegate
+        forecastListView = nil
+    }
+    
+    var body: some View {
+        var view: AnyView = AnyView(Text("Initial view"))
+        switch(delegate.state){
+                case .listingData:
+                    if delegate.data == nil{
+                        view = AnyView(Text("There is not any data. Please try again!"))
+                    }else{
+                        if let _data = delegate.data{
+                            view =  AnyView(DailyForecastListView(data: _data))
+                        }else{
+                            view = AnyView(Text("There is not any data. Please try again!"))
+                        }
+                    }
+                case .retrievingData:
+                    view = AnyView(Text("Now retrieving data"))
+                case .noData:
+                    view = AnyView(Text("There is not any data. Please try again!"))
+            }
+        return view
+    }
+}
+

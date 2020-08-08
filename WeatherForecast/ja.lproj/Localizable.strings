@@ -5,6 +5,7 @@
   Created by Kuniie Hayato on 8/2/20.
   Copyright © 2020 Kuniie Hayato. All rights reserved.
 */
+"Title_ListView" = "天気予報";
 "WeatherDescription_DetailView" = "概況";
 "ProbabilityOfPrecipitation_DetailView" = "降水確率 (%)";
 "MaxTemp_DetailView" = "最高気温 (℃)";

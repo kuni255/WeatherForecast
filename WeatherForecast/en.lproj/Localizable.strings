@@ -5,6 +5,7 @@
   Created by Kuniie Hayato on 8/2/20.
   Copyright © 2020 Kuniie Hayato. All rights reserved.
 */
+"Title_ListView" = "Weather Forecast";
 "WeatherDescription_DetailView" = "Description";
 "ProbabilityOfPrecipitation_DetailView" = "Probability of precipitation (%)";
 "MaxTemp_DetailView" = "Max temp. (℃)";
