@@ -8,10 +8,9 @@
 
 import SwiftUI
 
-let sampleListView =  DailyForecastListView(data: sampleData)
-
 struct DailyForecastListView: View {
     @State var data: OWOneCallWeatherData
+    var startDataDownloading: () -> Void
     
     var body: some View {
         NavigationView{
@@ -20,13 +19,10 @@ struct DailyForecastListView: View {
                     DailyForecastRowView(forecastData: forecastData, weatherIcon: sampleIcon)
                 }
             }
+            .navigationBarItems(trailing: DailyForecastRefreshButton(startDataDownloading: startDataDownloading, isLabelButton: false))
                 .navigationBarTitle(LCS_Title_ListView)
+        
         }
     }
 }
 
-struct DailyForecastListView_Previews: PreviewProvider {
-    static var previews: some View {
-        DailyForecastListView(data: sampleData)
-    }
-}

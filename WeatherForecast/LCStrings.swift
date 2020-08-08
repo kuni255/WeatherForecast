@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Weather detail
 let LCS_Title_ListView = NSLocalizedString("Title_ListView", comment: "")
 let LCS_WeatherDescription_DetailView = NSLocalizedString("WeatherDescription_DetailView", comment: "")
 let LCS_ProbabilityOfPrecipitation_DetailView = NSLocalizedString("ProbabilityOfPrecipitation_DetailView", comment: "")
@@ -20,3 +21,7 @@ let LCS_Pressure_DetailView = NSLocalizedString("Pressure_DetailView", comment: 
 let LCS_UIV_DetailView = NSLocalizedString("UIV_DetailView", comment: "")
 let LCS_Sunrise_DetailView = NSLocalizedString("Sunrise_DetailView", comment: "")
 let LCS_Sunset_DetailView = NSLocalizedString("Sunset_DetailView", comment: "")
+// UI catpion
+let LCS_RefreshButton_Caption = NSLocalizedString("RefreshButton_Caption", comment: "")
+// Root view
+let NoData_RootView_RootView = NSLocalizedString("NoData_RootView", comment: "")

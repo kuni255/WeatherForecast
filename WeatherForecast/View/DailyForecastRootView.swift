@@ -16,19 +16,8 @@ enum DailyForecastRootViewState{
     case listingData
 }
 
-struct DailyForecastListViewLoadButton: View{
-    var body: some View{
-        Text("Test")
-    }
-}
-
-func StartDownloadingData(){
-    
-}
-
 struct DailyForecastRootView: View {
     @ObservedObject var delegate: DailyForecastRootViewDelegate
-    
     @State private var forecastListView: DailyForecastListView?
     
     init(delegate: DailyForecastRootViewDelegate){
@@ -41,10 +30,10 @@ struct DailyForecastRootView: View {
         switch(delegate.state){
                 case .listingData:
                     if delegate.data == nil{
-                        view = AnyView(Text("There is not any data. Please try again!"))
+                        view = AnyView(DailyForecastNoDataView(startDataDownloading: delegate.startDataDownloading))
                     }else{
                         if let _data = delegate.data{
-                            view =  AnyView(DailyForecastListView(data: _data))
+                            view =  AnyView(DailyForecastListView(data: _data, startDataDownloading: delegate.startDataDownloading))
                         }else{
                             view = AnyView(Text("There is not any data. Please try again!"))
                         }
@@ -52,7 +41,7 @@ struct DailyForecastRootView: View {
                 case .retrievingData:
                     view = AnyView(Text("Now retrieving data"))
                 case .noData:
-                    view = AnyView(Text("There is not any data. Please try again!"))
+                    view = AnyView(DailyForecastNoDataView(startDataDownloading: delegate.startDataDownloading))
             }
         return view
     }
