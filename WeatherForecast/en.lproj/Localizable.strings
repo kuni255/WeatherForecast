@@ -22,3 +22,4 @@
 "RefreshButton_Caption" = "Refresh";
 // Root view
 "NoData_RootView" = "There is not any data. Please try again...";
+"RetrievingData_RootView" = "Retrieving data...";

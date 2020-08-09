@@ -24,4 +24,5 @@ let LCS_Sunset_DetailView = NSLocalizedString("Sunset_DetailView", comment: "")
 // UI catpion
 let LCS_RefreshButton_Caption = NSLocalizedString("RefreshButton_Caption", comment: "")
 // Root view
-let NoData_RootView_RootView = NSLocalizedString("NoData_RootView", comment: "")
+let LCS_NoData_RootView_RootView = NSLocalizedString("NoData_RootView", comment: "")
+let LCS_RetrievingData_RootView = NSLocalizedString("RetrievingData_RootView", comment: "")

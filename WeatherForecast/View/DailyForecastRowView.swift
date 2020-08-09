@@ -12,31 +12,37 @@ struct DailyForecastRowView: View {
     var forecastData: OWDailyForecastWeatherData
     
     var date: String{
+        // Day
+        let components = Calendar.current.dateComponents([.day], from: forecastData.time)
+        let day = String(format: "%2d", components.day ?? 0)
+        // Day of week
         let formatter = DateFormatter()
         formatter.locale = Locale.current
-        formatter.dateFormat = "d (EEE)"
-        return formatter.string(from: forecastData.time)
+        formatter.dateFormat = "(EEE)"
+        let dayOfWeek = formatter.string(from: forecastData.time)
+        
+        return day + " " + dayOfWeek
     }
     
     var body: some View {
-        HStack{
-            Text(date)
-                .bold()
-                .font(.title)
-            Spacer()
-            OWWeatherConditionIcon(size: 50.0, iconID: forecastData.weatherList[0].iconID)
-            Spacer()
-            Text(getTemperature(forecastData.temperature.max))
-                .foregroundColor(.red)
-                .font(.title)
-            Text("/")
-            Text(getTemperature(forecastData.temperature.min))
-                .foregroundColor(.blue)
-                .font(.title)
-            Spacer()
+        HStack(spacing: 5){
+            Group{
+                Text(date)
+                    .bold()
+                    .font(.headline)
+                OWWeatherConditionIcon(size: 50.0, iconID: forecastData.weatherList[0].iconID)
+            }
+            Group{
+                Text(getTemperature(forecastData.temperature.max))
+                    .foregroundColor(.red)
+                    .font(.title)
+                Text("/")
+                Text(getTemperature(forecastData.temperature.min))
+                    .foregroundColor(.blue)
+                    .font(.title)
+            }
             Text(getProbabilityOfPrecipitation(forecastData.probabilityOfPrecipitation))
                 .font(.title)
-            Spacer()
         }
             .padding(10)
     }
@@ -46,7 +52,7 @@ struct DailyForecastRowView: View {
     }
     
     func getProbabilityOfPrecipitation(_ prop: Double) -> String{
-        return String(format: "%.0f %%", prop*100)
+        return String(format: "%3.0f %%", prop*100)
     }
 }
 

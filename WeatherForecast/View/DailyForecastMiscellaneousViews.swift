@@ -41,7 +41,7 @@ struct DailyForecastNoDataView: View{
     
     var body: some View{
         VStack(spacing: 10){
-            Text(NoData_RootView_RootView)
+            Text(LCS_NoData_RootView_RootView)
             DailyForecastRefreshButton(startDataDownloading: startDataDownloading, isLabelButton: true)
         }
     }

@@ -35,11 +35,11 @@ struct DailyForecastRootView: View {
                         if let _data = delegate.data{
                             view =  AnyView(DailyForecastListView(data: _data, startDataDownloading: delegate.startDataDownloading))
                         }else{
-                            view = AnyView(Text("There is not any data. Please try again!"))
+                            view = AnyView(DailyForecastNoDataView(startDataDownloading: delegate.startDataDownloading))
                         }
                     }
                 case .retrievingData:
-                    view = AnyView(Text("Now retrieving data"))
+                    view = AnyView(Text(LCS_RetrievingData_RootView))
                 case .noData:
                     view = AnyView(DailyForecastNoDataView(startDataDownloading: delegate.startDataDownloading))
             }

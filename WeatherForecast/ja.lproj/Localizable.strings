@@ -22,3 +22,4 @@
 "RefreshButton_Caption" = "再取得";
 // Root view
 "NoData_RootView" = "ネットワークに何らかの問題がある様です。時間を開けて再度お試し下さい。";
+"RetrievingData_RootView" = "データ取得中...";
