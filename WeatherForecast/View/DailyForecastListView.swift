@@ -15,8 +15,8 @@ struct DailyForecastListView: View {
     var body: some View {
         NavigationView{
             List(data.dailyForecaastData){ forecastData in
-                NavigationLink(destination: DailyForecastDetailView(forecastData: forecastData, weatherIcon: sampleIcon)){
-                    DailyForecastRowView(forecastData: forecastData, weatherIcon: sampleIcon)
+                NavigationLink(destination: DailyForecastDetailView(forecastData: forecastData)){
+                    DailyForecastRowView(forecastData: forecastData)
                 }
             }
             .navigationBarItems(trailing: DailyForecastRefreshButton(startDataDownloading: startDataDownloading, isLabelButton: false))

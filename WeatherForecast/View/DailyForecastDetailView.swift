@@ -10,7 +10,6 @@ import SwiftUI
 
 struct DailyForecastDetailView: View {
     var forecastData: OWDailyForecastWeatherData
-    var weatherIcon: UIImage
     
     var date: String{
         let formatter = DateFormatter()
@@ -19,17 +18,13 @@ struct DailyForecastDetailView: View {
         return formatter.string(from: forecastData.time)
     }
     
-    var _weatherIcon: Image{
-        return Image.init(uiImage: weatherIcon)
-    }
-    
     var body: some View {
         VStack{
             // Header
             HStack{
                 Text(date)
                     .font(.largeTitle)
-                _weatherIcon
+                OWWeatherConditionIcon(size: 90.0, iconID: forecastData.weatherList[0].iconID)
             }
             // Body
             DailyForecastDetailBodyView(forecastData: forecastData)
@@ -40,6 +35,6 @@ struct DailyForecastDetailView: View {
 
 struct DailyForecastDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DailyForecastDetailView(forecastData: sampleData.dailyForecaastData[0], weatherIcon: sampleIcon)
+        DailyForecastDetailView(forecastData: sampleData.dailyForecaastData[0])
     }
 }

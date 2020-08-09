@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4A2FBDE324DEF020008C666B /* DailyForecastMiscellaneousViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2FBDE224DEF020008C666B /* DailyForecastMiscellaneousViews.swift */; };
+		4A2FBDE524DFD195008C666B /* OWWeatherConditionIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2FBDE424DFD195008C666B /* OWWeatherConditionIcon.swift */; };
 		4A35B28B24D6A35300959A4D /* LCStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A35B28A24D6A35300959A4D /* LCStrings.swift */; };
 		4A35B28C24D6A35300959A4D /* LCStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A35B28A24D6A35300959A4D /* LCStrings.swift */; };
 		4A35B28D24D6A35300959A4D /* LCStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A35B28A24D6A35300959A4D /* LCStrings.swift */; };
@@ -30,10 +31,8 @@
 		4A50182E24D59A6E00CCB9A7 /* miyazaki.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A50182D24D59A6E00CCB9A7 /* miyazaki.json */; };
 		4A50183024D59A7700CCB9A7 /* OWWeatherDataDecodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50182F24D59A7700CCB9A7 /* OWWeatherDataDecodeTests.swift */; };
 		4A50183124D59AA400CCB9A7 /* OWWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50182A24D59A2D00CCB9A7 /* OWWeatherData.swift */; };
-		4A50183224D59C2B00CCB9A7 /* miyazaki.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A50182D24D59A6E00CCB9A7 /* miyazaki.json */; };
 		4A50183524D59D1400CCB9A7 /* DailyForecastRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50183424D59D1400CCB9A7 /* DailyForecastRowView.swift */; };
 		4A50183724D5A0AB00CCB9A7 /* OWWeatherDataSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50183624D5A0AB00CCB9A7 /* OWWeatherDataSample.swift */; };
-		4A50183924D5B8B500CCB9A7 /* WeatherIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50183824D5B8B500CCB9A7 /* WeatherIcons.swift */; };
 		4A50183B24D6457D00CCB9A7 /* DailyForecastListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50183A24D6457D00CCB9A7 /* DailyForecastListView.swift */; };
 		4A50183D24D6503000CCB9A7 /* DailyForecastDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50183C24D6503000CCB9A7 /* DailyForecastDetailView.swift */; };
 		4A50183F24D6525700CCB9A7 /* DailyForecastDetailBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50183E24D6525700CCB9A7 /* DailyForecastDetailBodyView.swift */; };
@@ -58,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		4A2FBDE224DEF020008C666B /* DailyForecastMiscellaneousViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastMiscellaneousViews.swift; sourceTree = "<group>"; };
+		4A2FBDE424DFD195008C666B /* OWWeatherConditionIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OWWeatherConditionIcon.swift; path = WeatherForecast/Data/OWWeatherConditionIcon.swift; sourceTree = SOURCE_ROOT; };
 		4A35B28A24D6A35300959A4D /* LCStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCStrings.swift; sourceTree = "<group>"; };
 		4A35B2CB24D6AAC300959A4D /* ja */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4A35B2CD24D6AAC900959A4D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -83,7 +83,6 @@
 		4A50182F24D59A7700CCB9A7 /* OWWeatherDataDecodeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OWWeatherDataDecodeTests.swift; sourceTree = "<group>"; };
 		4A50183424D59D1400CCB9A7 /* DailyForecastRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastRowView.swift; sourceTree = "<group>"; };
 		4A50183624D5A0AB00CCB9A7 /* OWWeatherDataSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWWeatherDataSample.swift; sourceTree = "<group>"; };
-		4A50183824D5B8B500CCB9A7 /* WeatherIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIcons.swift; sourceTree = "<group>"; };
 		4A50183A24D6457D00CCB9A7 /* DailyForecastListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastListView.swift; sourceTree = "<group>"; };
 		4A50183C24D6503000CCB9A7 /* DailyForecastDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastDetailView.swift; sourceTree = "<group>"; };
 		4A50183E24D6525700CCB9A7 /* DailyForecastDetailBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastDetailBodyView.swift; sourceTree = "<group>"; };
@@ -200,8 +199,8 @@
 				4A2FBDE224DEF020008C666B /* DailyForecastMiscellaneousViews.swift */,
 				4A50183424D59D1400CCB9A7 /* DailyForecastRowView.swift */,
 				4A50183C24D6503000CCB9A7 /* DailyForecastDetailView.swift */,
-				4A50183824D5B8B500CCB9A7 /* WeatherIcons.swift */,
 				4A50183E24D6525700CCB9A7 /* DailyForecastDetailBodyView.swift */,
+				4A2FBDE424DFD195008C666B /* OWWeatherConditionIcon.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -312,7 +311,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A35B2C824D6AAC300959A4D /* Localizable.strings in Resources */,
-				4A50183224D59C2B00CCB9A7 /* miyazaki.json in Resources */,
 				4A50171824D0CF8E00CCB9A7 /* LaunchScreen.storyboard in Resources */,
 				4A50171524D0CF8E00CCB9A7 /* Preview Assets.xcassets in Resources */,
 				4A50171224D0CF8E00CCB9A7 /* Assets.xcassets in Resources */,
@@ -349,13 +347,13 @@
 				4A35B2CF24D8C09D00959A4D /* DailyForecastRootView.swift in Sources */,
 				4A35B2D324DB656400959A4D /* DailyForecastRootViewDelegate.swift in Sources */,
 				4A50170C24D0CF8C00CCB9A7 /* AppDelegate.swift in Sources */,
-				4A50183924D5B8B500CCB9A7 /* WeatherIcons.swift in Sources */,
 				4A50170E24D0CF8C00CCB9A7 /* SceneDelegate.swift in Sources */,
 				4A50183524D59D1400CCB9A7 /* DailyForecastRowView.swift in Sources */,
 				4A35B2D124DA142600959A4D /* OWWeatherDataUtils.swift in Sources */,
 				4A50183F24D6525700CCB9A7 /* DailyForecastDetailBodyView.swift in Sources */,
 				4A50182B24D59A2D00CCB9A7 /* OWWeatherData.swift in Sources */,
 				4A50171024D0CF8C00CCB9A7 /* ContentView.swift in Sources */,
+				4A2FBDE524DFD195008C666B /* OWWeatherConditionIcon.swift in Sources */,
 				4A2FBDE324DEF020008C666B /* DailyForecastMiscellaneousViews.swift in Sources */,
 				4A50183B24D6457D00CCB9A7 /* DailyForecastListView.swift in Sources */,
 			);

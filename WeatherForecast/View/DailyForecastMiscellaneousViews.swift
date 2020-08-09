@@ -26,7 +26,9 @@ struct DailyForecastRefreshButton: View {
             if isLabelButton{
                 Text(LCS_RefreshButton_Caption)
             }else{
-                Image("SFSymbolRefresh")
+                Image(systemName: "arrow.clockwise")
+                    .resizable()
+                    .frame(width: 45, height: 45, alignment: .leading)
             }
         }
         .buttonStyle(BorderlessButtonStyle())
