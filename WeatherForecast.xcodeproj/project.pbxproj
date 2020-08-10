@@ -15,7 +15,6 @@
 		4A35B2CF24D8C09D00959A4D /* DailyForecastRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A35B2CE24D8C09D00959A4D /* DailyForecastRootView.swift */; };
 		4A35B2D124DA142600959A4D /* OWWeatherDataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A35B2D024DA142600959A4D /* OWWeatherDataUtils.swift */; };
 		4A35B2D324DB656400959A4D /* DailyForecastRootViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A35B2D224DB656400959A4D /* DailyForecastRootViewDelegate.swift */; };
-		4A35B2D424DB656400959A4D /* DailyForecastRootViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A35B2D224DB656400959A4D /* DailyForecastRootViewDelegate.swift */; };
 		4A50170C24D0CF8C00CCB9A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50170B24D0CF8C00CCB9A7 /* AppDelegate.swift */; };
 		4A50170E24D0CF8C00CCB9A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50170D24D0CF8C00CCB9A7 /* SceneDelegate.swift */; };
 		4A50171024D0CF8C00CCB9A7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50170F24D0CF8C00CCB9A7 /* ContentView.swift */; };
@@ -33,6 +32,7 @@
 		4A50183B24D6457D00CCB9A7 /* DailyForecastListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50183A24D6457D00CCB9A7 /* DailyForecastListView.swift */; };
 		4A50183D24D6503000CCB9A7 /* DailyForecastDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50183C24D6503000CCB9A7 /* DailyForecastDetailView.swift */; };
 		4A50183F24D6525700CCB9A7 /* DailyForecastDetailBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50183E24D6525700CCB9A7 /* DailyForecastDetailBodyView.swift */; };
+		4AF7794724E11E7E00A7057B /* miyazaki.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A50182D24D59A6E00CCB9A7 /* miyazaki.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -306,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A35B2C824D6AAC300959A4D /* Localizable.strings in Resources */,
+				4AF7794724E11E7E00A7057B /* miyazaki.json in Resources */,
 				4A50171824D0CF8E00CCB9A7 /* LaunchScreen.storyboard in Resources */,
 				4A50171524D0CF8E00CCB9A7 /* Preview Assets.xcassets in Resources */,
 				4A50171224D0CF8E00CCB9A7 /* Assets.xcassets in Resources */,
@@ -360,7 +361,6 @@
 				4A50183124D59AA400CCB9A7 /* OWWeatherData.swift in Sources */,
 				4A50183024D59A7700CCB9A7 /* OWWeatherDataDecodeTests.swift in Sources */,
 				4A50172324D0CF8E00CCB9A7 /* WeatherForecastTests.swift in Sources */,
-				4A35B2D424DB656400959A4D /* DailyForecastRootViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +519,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
