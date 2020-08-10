@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		4A2FBDE324DEF020008C666B /* DailyForecastMiscellaneousViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2FBDE224DEF020008C666B /* DailyForecastMiscellaneousViews.swift */; };
 		4A2FBDE524DFD195008C666B /* OWWeatherConditionIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2FBDE424DFD195008C666B /* OWWeatherConditionIcon.swift */; };
-		4A35B28B24D6A35300959A4D /* LCStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A35B28A24D6A35300959A4D /* LCStrings.swift */; };
-		4A35B28C24D6A35300959A4D /* LCStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A35B28A24D6A35300959A4D /* LCStrings.swift */; };
-		4A35B28D24D6A35300959A4D /* LCStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A35B28A24D6A35300959A4D /* LCStrings.swift */; };
 		4A35B2C824D6AAC300959A4D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A35B2CC24D6AAC300959A4D /* Localizable.strings */; };
 		4A35B2C924D6AAC300959A4D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A35B2CC24D6AAC300959A4D /* Localizable.strings */; };
 		4A35B2CA24D6AAC300959A4D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A35B2CC24D6AAC300959A4D /* Localizable.strings */; };
@@ -58,7 +55,6 @@
 /* Begin PBXFileReference section */
 		4A2FBDE224DEF020008C666B /* DailyForecastMiscellaneousViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastMiscellaneousViews.swift; sourceTree = "<group>"; };
 		4A2FBDE424DFD195008C666B /* OWWeatherConditionIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OWWeatherConditionIcon.swift; path = WeatherForecast/Data/OWWeatherConditionIcon.swift; sourceTree = SOURCE_ROOT; };
-		4A35B28A24D6A35300959A4D /* LCStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCStrings.swift; sourceTree = "<group>"; };
 		4A35B2CB24D6AAC300959A4D /* ja */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4A35B2CD24D6AAC900959A4D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4A35B2CE24D8C09D00959A4D /* DailyForecastRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastRootView.swift; sourceTree = "<group>"; };
@@ -138,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				4A35B2CC24D6AAC300959A4D /* Localizable.strings */,
-				4A35B28A24D6A35300959A4D /* LCStrings.swift */,
 				4A50183324D59CDA00CCB9A7 /* View */,
 				4A50182924D59A0600CCB9A7 /* Data */,
 				4A50170B24D0CF8C00CCB9A7 /* AppDelegate.swift */,
@@ -341,7 +336,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A35B28B24D6A35300959A4D /* LCStrings.swift in Sources */,
 				4A50183724D5A0AB00CCB9A7 /* OWWeatherDataSample.swift in Sources */,
 				4A50183D24D6503000CCB9A7 /* DailyForecastDetailView.swift in Sources */,
 				4A35B2CF24D8C09D00959A4D /* DailyForecastRootView.swift in Sources */,
@@ -366,7 +360,6 @@
 				4A50183124D59AA400CCB9A7 /* OWWeatherData.swift in Sources */,
 				4A50183024D59A7700CCB9A7 /* OWWeatherDataDecodeTests.swift in Sources */,
 				4A50172324D0CF8E00CCB9A7 /* WeatherForecastTests.swift in Sources */,
-				4A35B28C24D6A35300959A4D /* LCStrings.swift in Sources */,
 				4A35B2D424DB656400959A4D /* DailyForecastRootViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,7 +369,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A50172E24D0CF8E00CCB9A7 /* WeatherForecastUITests.swift in Sources */,
-				4A35B28D24D6A35300959A4D /* LCStrings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -39,7 +39,7 @@ struct DailyForecastRootView: View {
                         }
                     }
                 case .retrievingData:
-                    view = AnyView(Text(LCS_RetrievingData_RootView))
+                    view = AnyView( Text( LocalizedStringKey("LSK_RetrievingData_RootView") ))
                 case .noData:
                     view = AnyView(DailyForecastNoDataView(startDataDownloading: delegate.startDataDownloading))
             }

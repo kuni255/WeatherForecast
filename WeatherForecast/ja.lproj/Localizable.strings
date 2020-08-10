@@ -6,20 +6,20 @@
   Copyright © 2020 Kuniie Hayato. All rights reserved.
 */
 // Weather detail
-"Title_ListView" = "天気予報";
-"WeatherDescription_DetailView" = "概況";
-"ProbabilityOfPrecipitation_DetailView" = "降水確率 (%)";
-"MaxTemp_DetailView" = "最高気温 (℃)";
-"MinTemp_DetailView" = "最低気温 (℃)";
-"WindSpeed_DetailView" = "風速 (m/sec)";
-"WindDirection_DetailView" = "風向 (degree)";
-"Humidity_DetailView" = "湿度 (%)";
-"Pressure_DetailView" = "気圧 (hPa)";
-"UIV_DetailView" = "紫外線指数";
-"Sunrise_DetailView" = "日の出";
-"Sunset_DetailView" = "日の入り";
+"LSK_Title_ListView" = "天気予報";
+"LSK_WeatherDescription_DetailView" = "概況";
+"LSK_ProbabilityOfPrecipitation_DetailView" = "降水確率 (%)";
+"LSK_MaxTemp_DetailView" = "最高気温 (℃)";
+"LSK_MinTemp_DetailView" = "最低気温 (℃)";
+"LSK_WindSpeed_DetailView" = "風速 (m/sec)";
+"LSK_WindDirection_DetailView" = "風向 (degree)";
+"LSK_Humidity_DetailView" = "湿度 (%)";
+"LSK_Pressure_DetailView" = "気圧 (hPa)";
+"LSK_UIV_DetailView" = "紫外線指数";
+"LSK_Sunrise_DetailView" = "日の出";
+"LSK_Sunset_DetailView" = "日の入り";
 // UI caption
-"RefreshButton_Caption" = "再取得";
+"LSK_RefreshButton_Caption" = "再取得";
 // Root view
-"NoData_RootView" = "ネットワークに何らかの問題がある様です。時間を開けて再度お試し下さい。";
-"RetrievingData_RootView" = "データ取得中...";
+"LSK_NoData_RootView" = "ネットワークに何らかの問題がある様です。時間を開けて再度お試し下さい。";
+"LSK_RetrievingData_RootView" = "データ取得中...";

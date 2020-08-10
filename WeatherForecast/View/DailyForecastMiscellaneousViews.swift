@@ -24,7 +24,7 @@ struct DailyForecastRefreshButton: View {
     var body: some View {
         Button(action: {self.startDataDownloading()}){
             if isLabelButton{
-                Text(LCS_RefreshButton_Caption)
+                Text( LocalizedStringKey("LSK_RefreshButton_Caption") )
             }else{
                 Image(systemName: "arrow.clockwise")
                     .resizable()
@@ -41,7 +41,8 @@ struct DailyForecastNoDataView: View{
     
     var body: some View{
         VStack(spacing: 10){
-            Text(LCS_NoData_RootView_RootView)
+            Text( LocalizedStringKey(
+                "LSK_NoData_RootView") )
             DailyForecastRefreshButton(startDataDownloading: startDataDownloading, isLabelButton: true)
         }
     }

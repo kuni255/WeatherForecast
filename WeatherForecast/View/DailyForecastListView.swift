@@ -20,7 +20,7 @@ struct DailyForecastListView: View {
                 }
             }
             .navigationBarItems(trailing: DailyForecastRefreshButton(startDataDownloading: startDataDownloading, isLabelButton: false))
-                .navigationBarTitle(LCS_Title_ListView)
+                .navigationBarTitle( LocalizedStringKey("LSK_Title_ListView") )
         }
     }
 }
