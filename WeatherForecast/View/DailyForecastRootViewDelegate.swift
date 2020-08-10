@@ -16,6 +16,7 @@ class DailyForecastRootViewDelegate: ObservableObject{
     @Published var data: OWOneCallWeatherData?
     
     let point: CLLocationCoordinate2D
+    let langID: String
     let openWeatherAppID: String
     var downloader: OWWeatherDataHTTPDownloaderClass?
     
@@ -24,9 +25,10 @@ class DailyForecastRootViewDelegate: ObservableObject{
     init?(point: CLLocationCoordinate2D, openWeatherAppID: String){
         self.state            = .noData
         self.point            = point
+        self.langID           = Bundle.main.preferredLocalizations.first ?? "en"
         self.openWeatherAppID = openWeatherAppID
         downloader            = nil
-        if let _downloader = OWWeatherDataHTTPDownloaderClass.init(point: self.point, appID: self.openWeatherAppID, successfulCompletionHandler: handleDataArrival, errorHandler: handleDataRetrievalFailure){
+        if let _downloader = OWWeatherDataHTTPDownloaderClass.init(point: self.point, langID: langID, appID: self.openWeatherAppID, successfulCompletionHandler: handleDataArrival, errorHandler: handleDataRetrievalFailure){
             downloader = _downloader
         }else{
             return nil

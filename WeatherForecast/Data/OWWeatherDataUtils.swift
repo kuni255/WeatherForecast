@@ -30,14 +30,23 @@ class OWWeatherDataHTTPDownloaderClass{
     var errorHandler: ((URLResponse?, Error)->Void)
     let APIURL: URL
     
-    init?( point: CLLocationCoordinate2D, appID: String, successfulCompletionHandler: @escaping((OWOneCallWeatherData)->Void), errorHandler: @escaping((URLResponse?, Error)->Void)){
+    /**
+     - Description Instantiate Open Weather forecast data downloader
+     - Parameter point: Georogical point to obtain forecast data
+     - Parameter langID: Language of frecast data. A server returns description of weather  condition
+                        in the specified language . (e.g. "en", "ja")
+     - Parameter appID: REST API token to obtain data from Open Weather.
+     - Parameter successfulCompletionHandler: This method will be called when data is downloaded successfully.
+     - Parameter errorHandler: This method will be called in the case that failed to obtain forecast data
+     */
+    init?( point: CLLocationCoordinate2D, langID: String, appID: String, successfulCompletionHandler: @escaping((OWOneCallWeatherData)->Void), errorHandler: @escaping((URLResponse?, Error)->Void)){
         self.point = point
         self.appID = appID
         self.successfulCompletionHandler = successfulCompletionHandler
         self.errorHandler = errorHandler
         
         var URLString = OWAPIOneCallAPIEndpointURL
-        URLString = URLString + String(format: "?lat=%f&lon=%f&exclude=current,minutely,hourly&units=metric&appid=",
+        URLString = URLString + String(format: "?lat=%f&lon=%f&exclude=current,minutely,hourly&units=metric&lang=\(langID)&appid=",
                                point.latitude, point.longitude) + self.appID
         if let _APIURL = URL.init(string: URLString){
             APIURL = _APIURL
