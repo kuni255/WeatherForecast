@@ -33,6 +33,7 @@
 		4A50183D24D6503000CCB9A7 /* DailyForecastDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50183C24D6503000CCB9A7 /* DailyForecastDetailView.swift */; };
 		4A50183F24D6525700CCB9A7 /* DailyForecastDetailBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50183E24D6525700CCB9A7 /* DailyForecastDetailBodyView.swift */; };
 		4AF7794724E11E7E00A7057B /* miyazaki.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A50182D24D59A6E00CCB9A7 /* miyazaki.json */; };
+		4AFBD13224E2571B005BD11E /* PortingViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFBD13124E2571B005BD11E /* PortingViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		4A50183C24D6503000CCB9A7 /* DailyForecastDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastDetailView.swift; sourceTree = "<group>"; };
 		4A50183E24D6525700CCB9A7 /* DailyForecastDetailBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastDetailBodyView.swift; sourceTree = "<group>"; };
 		4A50184924D655D000CCB9A7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4AFBD13124E2571B005BD11E /* PortingViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortingViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 				4A50183C24D6503000CCB9A7 /* DailyForecastDetailView.swift */,
 				4A50183E24D6525700CCB9A7 /* DailyForecastDetailBodyView.swift */,
 				4A2FBDE424DFD195008C666B /* OWWeatherConditionIcon.swift */,
+				4AFBD13124E2571B005BD11E /* PortingViews.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				4A50170C24D0CF8C00CCB9A7 /* AppDelegate.swift in Sources */,
 				4A50170E24D0CF8C00CCB9A7 /* SceneDelegate.swift in Sources */,
 				4A50183524D59D1400CCB9A7 /* DailyForecastRowView.swift in Sources */,
+				4AFBD13224E2571B005BD11E /* PortingViews.swift in Sources */,
 				4A35B2D124DA142600959A4D /* OWWeatherDataUtils.swift in Sources */,
 				4A50183F24D6525700CCB9A7 /* DailyForecastDetailBodyView.swift in Sources */,
 				4A50182B24D59A2D00CCB9A7 /* OWWeatherData.swift in Sources */,

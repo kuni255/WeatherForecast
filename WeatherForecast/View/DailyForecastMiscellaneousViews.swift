@@ -48,4 +48,15 @@ struct DailyForecastNoDataView: View{
     }
 }
 
+struct DailyForecastRetrievingDataView: View{
+    @State private var animating: Bool = true
+    
+    var body: some View{
+        VStack{
+            Text( LocalizedStringKey("LSK_RetrievingData_RootView") )
+            SUIActivityIndicatorView(animating: $animating)
+        }
+    }
+}
+
 
