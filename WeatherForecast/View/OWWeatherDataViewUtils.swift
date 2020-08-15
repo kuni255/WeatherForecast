@@ -15,7 +15,7 @@ func getUnitCaption(for dataType: OWPresentableWeatherDataType, systemOfMeasurem
         case .Standard:
             return "(K)"
         case .Metric, .Imperial:
-            return "(℃)"
+            return "(°)"
         }
     case .WindSpeed:
         switch systemOfMeasurement {

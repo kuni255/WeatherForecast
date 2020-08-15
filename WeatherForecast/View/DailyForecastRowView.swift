@@ -24,6 +24,17 @@ struct DailyForecastRowView: View {
         return day + " " + dayOfWeek
     }
     
+    var fontForTemperature: Font{
+        get{
+            switch forecastData.systemOfMeasurement {
+            case .Metric, .Imperial:
+                return .title
+            case .Standard:
+                return .headline
+            }
+        }
+    }
+    
     var body: some View {
         HStack(spacing: 5){
             Group{
@@ -35,11 +46,11 @@ struct DailyForecastRowView: View {
             Group{
                 Text(getTemperature(forecastData.temperature.max))
                     .foregroundColor(.red)
-                    .font(.title)
+                    .font(fontForTemperature)
                 Text("/")
                 Text(getTemperature(forecastData.temperature.min))
                     .foregroundColor(.blue)
-                    .font(.title)
+                    .font(fontForTemperature)
             }
             Text(getProbabilityOfPrecipitation(forecastData.probabilityOfPrecipitation))
                 .font(.title)
@@ -59,5 +70,6 @@ struct DailyForecastRowView: View {
 struct DailyForecastRowView_Previews: PreviewProvider {
     static var previews: some View {
         DailyForecastRowView(forecastData: sampleData.dailyForecaastData[0])
+            .previewLayout(.fixed(width: 370, height: 50))
     }
 }

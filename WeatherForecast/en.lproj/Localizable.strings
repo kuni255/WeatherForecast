@@ -5,6 +5,11 @@
   Created by Kuniie Hayato on 8/2/20.
   Copyright © 2020 Kuniie Hayato. All rights reserved.
 */
+// List view
+"LSK_Date_ListView" = "Date";
+"LSK_ProbabilityOfPrecipitation_ListView" = "POP";
+"LSK_MaxTemp_ListView" = "Max temp.";
+"LSK_MinTemp_ListView" = "Min temp.";
 // Weather detail
 "LSK_Title_ListView" = "Weather Forecast";
 "LSK_WeatherDescription_DetailView" = "Description";
