@@ -44,6 +44,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             os_log("Failed to load app specific properties", log: .default, type: .error)
             return
         }
+        
+        // Register my self as a observer of prefereces change
+        UserDefaults.standard.addObserver(self, forKeyPath: "measurementSystem_preference", options: [NSKeyValueObservingOptions.new], context: nil)
 
         // Create the SwiftUI view that provides the window contents.
         if (targetPoint != nil) && (openWeatherAppID != nil){
@@ -75,6 +78,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This occurs shortly after the scene enters the background, or when its session is discarded.
         // Release any resources associated with this scene that can be re-created the next time the scene connects.
         // The scene may re-connect later, as its session was not neccessarily discarded (see `application:didDiscardSceneSessions` instead).
+        UserDefaults.standard.removeObserver(self, forKeyPath: "measurementSystem_preference", context: nil)
     }
 
     func sceneDidBecomeActive(_ scene: UIScene) {
@@ -124,6 +128,30 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             openWeatherAppID = _appID
         }else{
             throw LoadCustomPropertiesError.FailedToLoadOpenWeatherAppID
+        }
+    }
+    
+    // Observe defaults change
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if let _keyPath = keyPath{
+            if _keyPath == "measurementSystem_preference"{
+                if let _change = change{
+                    let newStrValue = _change[NSKeyValueChangeKey.newKey] as! String
+                    if let newSysMeasure = OWSystemOfMeasurement.init(rawValue: newStrValue){
+                        if let delegate = rootViewDelegate{
+                            delegate.handleChangeOfMeasurementSystem(newSystem: newSysMeasure)
+                        }
+                    }else{
+                        os_log(.error, log: .default, "Failed to extract new value from preference system")
+                    }
+                }else{
+                    os_log(.error, log: .default, "Failed to extract new value from preference system")
+                }
+            }else{
+                return
+            }
+        }else{
+            return
         }
     }
 

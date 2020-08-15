@@ -14,30 +14,45 @@ import SwiftUI
 class DailyForecastRootViewDelegate: ObservableObject{
     @Published var state: DailyForecastRootViewState
     @Published var data: OWOneCallWeatherData?
-    
-    let point: CLLocationCoordinate2D
-    let langID: String
+    var systemOfMeasurement: OWSystemOfMeasurement
+
+    var downloadConfigurations: OWWeatherDataDownloadConfigurations
     let openWeatherAppID: String
-    var downloader: OWWeatherDataHTTPDownloaderClass?
     
     private var _view: DailyForecastRootView? = nil
     
     init?(point: CLLocationCoordinate2D, openWeatherAppID: String){
         self.state            = .noData
-        self.point            = point
-        self.langID           = Bundle.main.preferredLocalizations.first ?? "en"
+        let langID: String    = Bundle.main.preferredLocalizations.first ?? "en"
+        self.systemOfMeasurement    = .Standard
+        self.downloadConfigurations = OWWeatherDataDownloadConfigurations(point: point, langID: langID, systemOfMeasurement: .Standard)
         self.openWeatherAppID = openWeatherAppID
-        downloader            = nil
-        if let _downloader = OWWeatherDataHTTPDownloaderClass.init(point: self.point, langID: langID, appID: self.openWeatherAppID, successfulCompletionHandler: handleDataArrival, errorHandler: handleDataRetrievalFailure){
-            downloader = _downloader
+    }
+    
+    func getSystemOfMeasurement()-> OWSystemOfMeasurement{
+        if let strMmSys = UserDefaults.standard.string(forKey: "measurementSystem_preference"){
+            if let _mmSystem = OWSystemOfMeasurement(rawValue: strMmSys){
+                return _mmSystem
+            }else{
+                return .Standard
+            }
         }else{
-            return nil
+            return .Standard
         }
     }
     
+    //MARK: Downloading data
     func startDataDownloading(){
         state = .retrievingData
-        downloader!.ExecuteAsync()
+        do{
+            if let downloader = makeDownloader(){
+                try downloader.ExecuteAsync()
+            }else{
+                state = .noData
+            }
+        }catch{
+            state = .noData
+        }
     }
     
     func handleDataArrival(data: OWOneCallWeatherData){
@@ -48,4 +63,20 @@ class DailyForecastRootViewDelegate: ObservableObject{
     func handleDataRetrievalFailure(response: URLResponse?, error: Error){
         state = .noData
     }
+    
+    func makeDownloader()-> OWWeatherDataHTTPDownloaderClass?{
+        self.downloadConfigurations.systemOfMeasurement = getSystemOfMeasurement()
+        
+        return OWWeatherDataHTTPDownloaderClass.init(downloadConfigurations, appID: self.openWeatherAppID, successfulCompletionHandler: handleDataArrival, errorHandler: handleDataRetrievalFailure)
+    }
+    
+    //MARK: Change of measurement system
+    func handleChangeOfMeasurementSystem(newSystem: OWSystemOfMeasurement){
+        if data != nil{
+            data!.convert(to: newSystem)
+        }
+        
+        systemOfMeasurement = newSystem
+    }
+    
 }

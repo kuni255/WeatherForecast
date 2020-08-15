@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import WeatherForecast
+@testable import Weather_Forecast
 
 class WeatherForecastTests: XCTestCase {
 

@@ -1,0 +1,4 @@
+"Root.Pref_sysMesTitle" = "単位体系";
+"Root.Pref_sysMesItemStandard" = "国際単位系 (ケルビン, meter/sec)";
+"Root.Pref_sysMesItemMetric"   = "メトリック (摂氏, meter/sec)";
+"Root.Pref_sysMesItemImperial" = "インペリアル (華氏, miles/hour)";

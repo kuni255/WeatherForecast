@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct DailyForecastListView: View {
-    @State var data: OWOneCallWeatherData
+    var data: OWOneCallWeatherData
     var startDataDownloading: () -> Void
     
     var body: some View {

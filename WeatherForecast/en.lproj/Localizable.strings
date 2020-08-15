@@ -8,13 +8,13 @@
 // Weather detail
 "LSK_Title_ListView" = "Weather Forecast";
 "LSK_WeatherDescription_DetailView" = "Description";
-"LSK_ProbabilityOfPrecipitation_DetailView" = "Probability of precipitation (%)";
-"LSK_MaxTemp_DetailView" = "Max temp. (℃)";
-"LSK_MinTemp_DetailView" = "Min temp. (℃)";
-"LSK_WindSpeed_DetailView" = "Wind speed (m/sec)";
-"LSK_WindDirection_DetailView" = "Wind direction (degree)";
-"LSK_Humidity_DetailView" = "Humidity (%)";
-"LSK_Pressure_DetailView" = "Pressure (hPa)";
+"LSK_ProbabilityOfPrecipitation_DetailView" = "Probability of precipitation";
+"LSK_MaxTemp_DetailView" = "Max temp.";
+"LSK_MinTemp_DetailView" = "Min temp.";
+"LSK_WindSpeed_DetailView" = "Wind speed";
+"LSK_WindDirection_DetailView" = "Wind direction";
+"LSK_Humidity_DetailView" = "Humidity";
+"LSK_Pressure_DetailView" = "Pressure";
 "LSK_UIV_DetailView" = "UV index";
 "LSK_Sunrise_DetailView" = "Sunrise";
 "LSK_Sunset_DetailView" = "Sunset";

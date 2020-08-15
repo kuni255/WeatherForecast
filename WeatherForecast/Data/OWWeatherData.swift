@@ -5,7 +5,7 @@
 //  Created by Kuniie Hayato on 7/29/20.
 //  Copyright © 2020 Kuniie Hayato. All rights reserved.
 //
-/*
+/**
  Data types represents weather data by OpenWeather ( https://openweathermap.org )
  In detail, You can get the following data by calling One Call API ( https://openweathermap.org/api/one-call-api )
  */
@@ -13,7 +13,7 @@ import CoreLocation
 import Foundation
 import os
 
-struct OWDailyForecastWeatherFeelsLikeData: Codable{
+struct OWDailyForecastWeatherFeelsLikeData: OWWeatherData, Codable{
     var morning: Double
     var day: Double
     var evening: Double
@@ -32,6 +32,13 @@ struct OWDailyForecastWeatherFeelsLikeData: Codable{
         day = try container.decode(Double.self, forKey: .day)
         evening = try container.decode(Double.self, forKey: .evening)
         night = try container.decode(Double.self, forKey: .night)
+    
+        _sysOfMeasurement = .Standard
+    }
+    
+    init(from decoder: Decoder, systemOfMeasurement: OWSystemOfMeasurement)throws{
+        try self.init(from: decoder)
+        _sysOfMeasurement = systemOfMeasurement
     }
     
     func encode(to encoder: Encoder)throws{
@@ -41,9 +48,29 @@ struct OWDailyForecastWeatherFeelsLikeData: Codable{
         try container.encode(evening, forKey: .evening)
         try container.encode(night, forKey: .night)
     }
+    
+    //MARK: OWWeatherData
+    private var _sysOfMeasurement: OWSystemOfMeasurement
+    var systemOfMeasurement: OWSystemOfMeasurement{
+        get{
+            return _sysOfMeasurement
+        }
+        set(newValue){
+            _sysOfMeasurement = newValue
+        }
+    }
+    
+    mutating func convert(to sysOfMeasurement: OWSystemOfMeasurement) {
+        morning = convertTemperature(from: _sysOfMeasurement, to: sysOfMeasurement, morning)
+        day     = convertTemperature(from: _sysOfMeasurement, to: sysOfMeasurement, day)
+        evening = convertTemperature(from: _sysOfMeasurement, to: sysOfMeasurement, evening)
+        night   = convertTemperature(from: _sysOfMeasurement, to: sysOfMeasurement, night)
+        
+        _sysOfMeasurement = sysOfMeasurement
+    }
 }
 
-struct OWDailyForecastWeahterTemperatureData: Codable{
+struct OWDailyForecastWeahterTemperatureData: OWWeatherData, Codable{
     var morning: Double
     var day: Double
     var evening: Double
@@ -68,6 +95,8 @@ struct OWDailyForecastWeahterTemperatureData: Codable{
         night = try container.decode(Double.self, forKey: .night)
         min = try container.decode(Double.self, forKey: .min)
         max = try container.decode(Double.self, forKey: .max)
+        
+        _sysOfMeasurement = .Standard
     }
     
     func encode(to encoder: Encoder)throws{
@@ -78,6 +107,28 @@ struct OWDailyForecastWeahterTemperatureData: Codable{
         try container.encode(night, forKey: .night)
         try container.encode(min, forKey: .min)
         try container.encode(max, forKey: .max)
+    }
+    
+    //MARK: OWWeatherData
+    private var _sysOfMeasurement: OWSystemOfMeasurement
+    var systemOfMeasurement: OWSystemOfMeasurement{
+        get{
+            return _sysOfMeasurement
+        }
+        set(newValue){
+            _sysOfMeasurement = newValue
+        }
+    }
+    
+    mutating func convert(to sysOfMeasurement: OWSystemOfMeasurement) {
+        morning = convertTemperature(from: _sysOfMeasurement, to: sysOfMeasurement, morning)
+        day     = convertTemperature(from: _sysOfMeasurement, to: sysOfMeasurement, day)
+        evening = convertTemperature(from: _sysOfMeasurement, to: sysOfMeasurement, evening)
+        night   = convertTemperature(from: _sysOfMeasurement, to: sysOfMeasurement, night)
+        min     = convertTemperature(from: _sysOfMeasurement, to: sysOfMeasurement, min)
+        max     = convertTemperature(from: _sysOfMeasurement, to: sysOfMeasurement, max)
+        
+        _sysOfMeasurement = sysOfMeasurement
     }
 }
 
@@ -111,7 +162,7 @@ struct OWDailyForecastWeatherConditionData: Codable{
     }
 }
 
-struct OWDailyForecastWeatherData: Codable, Identifiable{
+struct OWDailyForecastWeatherData: OWWeatherData, Codable, Identifiable{
     var time: Date!
     var sunriseTime: Date!
     var sunsetTime: Date!
@@ -204,6 +255,8 @@ struct OWDailyForecastWeatherData: Codable, Identifiable{
         }catch{
             snowVolume = nil
         }
+        
+        _sysOfMeasurement = .Standard
     }
     
     func encode(to encoder: Encoder)throws{
@@ -240,9 +293,35 @@ struct OWDailyForecastWeatherData: Codable, Identifiable{
             try container.encode(tmp, forKey: .snowVolume)
         }
     }
+    
+    //MARK: OWWeatherData
+    private var _sysOfMeasurement: OWSystemOfMeasurement
+    var systemOfMeasurement: OWSystemOfMeasurement{
+        get{
+            return _sysOfMeasurement
+        }
+        set(newValue){
+            temperature.systemOfMeasurement = newValue
+            feelsLike.systemOfMeasurement   = newValue
+            
+            _sysOfMeasurement = newValue
+        }
+    }
+    
+    mutating func convert(to sysOfMeasurement: OWSystemOfMeasurement) {
+        temperature.convert(to: sysOfMeasurement)
+        feelsLike.convert(to: sysOfMeasurement)
+        dewPoint = convertTemperature(from: _sysOfMeasurement, to: sysOfMeasurement, dewPoint)
+        windSpeed = convertWindSpeed(from: _sysOfMeasurement, to: sysOfMeasurement, windSpeed)
+        if let wg = windGust{
+            windGust = convertWindSpeed(from: _sysOfMeasurement, to: sysOfMeasurement, wg)
+        }
+        
+        _sysOfMeasurement = sysOfMeasurement
+    }
 }
 
-struct OWOneCallWeatherData : Codable{
+struct OWOneCallWeatherData : OWWeatherData, Codable{
     var point: CLLocationCoordinate2D!
     var timezone: TimeZone!
     var timezoneCaption: String
@@ -256,7 +335,7 @@ struct OWOneCallWeatherData : Codable{
         case dailyForecastData = "daily"
     }
     
-    init(from decoder : Decoder) throws{
+    init(from decoder : Decoder)throws{
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let longitude = try container.decode(Double.self, forKey: .longitude)
         let latitude = try container.decode(Double.self, forKey: .latitude)
@@ -277,6 +356,8 @@ struct OWOneCallWeatherData : Codable{
             forecastData = try forecastDataContainer.decode(OWDailyForecastWeatherData.self)
             dailyForecaastData.append(forecastData)
         }
+        
+        _sysOfMeasurement = .Standard
     }
     
     func encode(to encoder: Encoder) throws {
@@ -291,5 +372,32 @@ struct OWOneCallWeatherData : Codable{
         for forecastData in dailyForecaastData{
             try container.encode(forecastData, forKey: .dailyForecastData)
         }
+    }
+    
+    //MARK: OWWeatherData
+    private var _sysOfMeasurement: OWSystemOfMeasurement
+    var systemOfMeasurement: OWSystemOfMeasurement{
+        get{
+            return _sysOfMeasurement
+        }
+        set(newValue){
+            var data: OWDailyForecastWeatherData
+            
+            for idx in 0..<dailyForecaastData.count{
+                data = dailyForecaastData[idx]
+                data.systemOfMeasurement = newValue
+            }
+            
+            _sysOfMeasurement = newValue
+        }
+    }
+    
+    mutating func convert(to sysOfMeasurement: OWSystemOfMeasurement) {
+        
+        for idx in 0..<dailyForecaastData.count{
+            self.dailyForecaastData[idx].convert(to: sysOfMeasurement)
+        }
+        
+        _sysOfMeasurement = sysOfMeasurement
     }
 }

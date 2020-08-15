@@ -16,6 +16,7 @@ let OWAPIOneCallAPIEndpointURL = OWAPIDataEndpointURL + "/" + OWAPIVersion + "/o
 
 
 enum OWWeatherDataHTTPDownloadError: Error{
+    case cannotMakeValidURL
     case responseInvalid
     case responseCodeIndicatingFail
     case dataIsNotAvailable
@@ -23,39 +24,70 @@ enum OWWeatherDataHTTPDownloadError: Error{
     case unexpected
 }
 
-class OWWeatherDataHTTPDownloaderClass{
+struct OWWeatherDataDownloadConfigurations{
+    /// Georogical point to obtain forecast data
     var point: CLLocationCoordinate2D
+    /**
+       Language of frecast data. A server returns description of weather  condition
+       in the specified language . (e.g. "en", "ja")
+     */
+    var langID: String
+    /// Unit for forecast data. For more detail, Please refer the comment of UWUnit type
+    var systemOfMeasurement: OWSystemOfMeasurement
+}
+
+class OWWeatherDataHTTPDownloaderClass{
+    var configurations: OWWeatherDataDownloadConfigurations
     var appID: String
     var successfulCompletionHandler: ((OWOneCallWeatherData)->Void)
     var errorHandler: ((URLResponse?, Error)->Void)
-    let APIURL: URL
     
     /**
      - Description Instantiate Open Weather forecast data downloader
-     - Parameter point: Georogical point to obtain forecast data
-     - Parameter langID: Language of frecast data. A server returns description of weather  condition
-                        in the specified language . (e.g. "en", "ja")
+     - Parameter configurations:Configurations will be used for obtaining weather forecast data
      - Parameter appID: REST API token to obtain data from Open Weather.
      - Parameter successfulCompletionHandler: This method will be called when data is downloaded successfully.
      - Parameter errorHandler: This method will be called in the case that failed to obtain forecast data
      */
-    init?( point: CLLocationCoordinate2D, langID: String, appID: String, successfulCompletionHandler: @escaping((OWOneCallWeatherData)->Void), errorHandler: @escaping((URLResponse?, Error)->Void)){
-        self.point = point
+    init?(_ configurations: OWWeatherDataDownloadConfigurations, appID: String, successfulCompletionHandler: @escaping((OWOneCallWeatherData)->Void), errorHandler: @escaping((URLResponse?, Error)->Void)){
+        // parameters
+        self.configurations = configurations
         self.appID = appID
         self.successfulCompletionHandler = successfulCompletionHandler
         self.errorHandler = errorHandler
-        
-        var URLString = OWAPIOneCallAPIEndpointURL
-        URLString = URLString + String(format: "?lat=%f&lon=%f&exclude=current,minutely,hourly&units=metric&lang=\(langID)&appid=",
-                               point.latitude, point.longitude) + self.appID
-        if let _APIURL = URL.init(string: URLString){
-            APIURL = _APIURL
-        }else{
-            return nil
-        }
     }
     
-    func ExecuteAsync(){
+    private func makeURL(from configurations: OWWeatherDataDownloadConfigurations) -> URL?{
+        var unitsPartIncludesBeforehandAnd: String
+        var URLString = OWAPIOneCallAPIEndpointURL
+        
+        // units part
+        switch configurations.systemOfMeasurement {
+        case .Imperial:
+            unitsPartIncludesBeforehandAnd = "&units=imperial"
+        case .Metric:
+            unitsPartIncludesBeforehandAnd = "&units=metric"
+        case .Standard:
+            unitsPartIncludesBeforehandAnd = ""
+        }
+        
+        URLString = URLString + String(format: "?lat=%f&lon=%f&exclude=current,minutely,hourly\(unitsPartIncludesBeforehandAnd)&lang=\(configurations.langID)&appid=\(self.appID)",
+            configurations.point.latitude, configurations.point.longitude)
+        
+        return URL.init(string: URLString)
+    }
+    
+    func ExecuteAsync() throws {
+        var APIURL: URL
+        
+        // Make URL from the initialized properties
+        if let _URL = makeURL(from: self.configurations){
+            APIURL = _URL
+        }else{
+            throw OWWeatherDataHTTPDownloadError.cannotMakeValidURL
+        }
+        
+        // Start downloading
         URLSession.shared.dataTask(with: APIURL, completionHandler: HandleURLSession)
         .resume()
     }
@@ -67,7 +99,8 @@ class OWWeatherDataHTTPDownloaderClass{
                     if let _data = data{
                         let dataDecoder = JSONDecoder()
                         do{
-                            let weatherData = try dataDecoder.decode(OWOneCallWeatherData.self, from: _data)
+                            var weatherData = try dataDecoder.decode(OWOneCallWeatherData.self, from: _data)
+                            weatherData.systemOfMeasurement = configurations.systemOfMeasurement
                             DispatchQueue.main.sync {
                                 successfulCompletionHandler(weatherData)
                             }
