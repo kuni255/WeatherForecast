@@ -1,7 +1,7 @@
 #  Private-Purpose SwiftUI app
- This project is only for examining skill for my iOS-app-development. This app display weather forecast data which is offered by OpenWeather ( https://openweathermap.org ). This app can display weather data in **multiple unit systems** (Standard, Metric and Imperial).
+ This project is only for examining skill for my iOS-app-development. This app can displays weather forecast data which is offered by OpenWeather ( https://openweathermap.org ) in **multiple unit systems** (Standard, Metric and Imperial).
 
-![Weather Forecast app](README.files/app.png)
+![Weather Forecast app](README.files/app.png?raw=true "Screenshots")
 
 # Technical features
   * Using **SwiftUI** as UI framework
@@ -25,4 +25,4 @@ API key for OpenWeather is needed for building this app. You can build this app 
   2. Open Info.plist
   3. Set your API key for OpenWeather to "OpenWeatherAppID"
 
-![Set API key](README.files/SetAPIKey.png)
+![Set API key](README.files/SetAPIKey.png?raw=true "Set API key")
