@@ -71,6 +71,6 @@
 	<key>TargetPointLongitude</key>
 	<real>131.423861</real>
 	<key>OpenWeatherAppID</key>
-	<string>253281222071e955ac0fcf359c653207</string>
+	<string>Your API key goes here</string>
 </dict>
 </plist>

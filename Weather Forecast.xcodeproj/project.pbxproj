@@ -89,6 +89,7 @@
 		4A50183C24D6503000CCB9A7 /* DailyForecastDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastDetailView.swift; sourceTree = "<group>"; };
 		4A50183E24D6525700CCB9A7 /* DailyForecastDetailBodyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyForecastDetailBodyView.swift; sourceTree = "<group>"; };
 		4A50184924D655D000CCB9A7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4A77982D24E8144400A38683 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4AFBD13124E2571B005BD11E /* PortingViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortingViews.swift; sourceTree = "<group>"; };
 		4AFBD13324E261DC005BD11E /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Data/Settings.bundle; sourceTree = "<group>"; };
 		4AFBD13524E26894005BD11E /* OWCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWCore.swift; sourceTree = "<group>"; };
@@ -124,6 +125,7 @@
 		4A5016FF24D0CF8C00CCB9A7 = {
 			isa = PBXGroup;
 			children = (
+				4A77982D24E8144400A38683 /* README.md */,
 				4A50170A24D0CF8C00CCB9A7 /* WeatherForecast */,
 				4A50172124D0CF8E00CCB9A7 /* WeatherForecastTests */,
 				4A50172C24D0CF8E00CCB9A7 /* WeatherForecastUITests */,
