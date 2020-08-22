@@ -23,13 +23,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var rootViewDelegate: DailyForecastRootViewDelegate?
     
     var targetPoint: CLLocationCoordinate2D?
+    var locations: [WFWeatherForecastLocation]
     var openWeatherAppID: String?
     
     override init(){
+        locations = []
         super.init()
-        rootViewDelegate = nil
-        targetPoint = nil
-        openWeatherAppID = nil
     }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -152,6 +151,42 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
         }else{
             return
+        }
+    }
+    
+    // User data
+    func getURLOnStorage() -> URL{
+        let fileNameOnStorage = "UserData"
+        let pathToDocDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        return pathToDocDir.appendingPathComponent(fileNameOnStorage)
+    }
+    
+    func loadUserData(){
+        do{
+            let data = try Data(contentsOf: getURLOnStorage())
+            if let anyLocation = try NSKeyedUnarchiver.unarchivedObject(ofClasses: [WFWeatherForecastLocation.self], from: data){
+                if let _locations = anyLocation as? [WFWeatherForecastLocation]{
+                    locations = _locations
+                }else{
+                    locations = []
+                    os_log(.error, log: .default, "Failed to loca user data")
+                }
+            }else{
+                locations = []
+                os_log(.error, log: .default, "Failed to load user data")
+            }
+        }catch{
+            locations = []
+            os_log(.error, log: .default, "Failed to load user data")
+        }
+    }
+    
+    func saveUserData(){
+        do{
+            let data = try NSKeyedArchiver.archivedData(withRootObject: locations, requiringSecureCoding: true)
+            try data.write(to: getURLOnStorage())
+        }catch{
+            os_log(.error, log: .default, "Failed to archive user's data")
         }
     }
 

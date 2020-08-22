@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A24BB4624E96EFA00C1E5DB /* WFUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A24BB4524E96EFA00C1E5DB /* WFUserData.swift */; };
 		4A2FBDE324DEF020008C666B /* DailyForecastMiscellaneousViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2FBDE224DEF020008C666B /* DailyForecastMiscellaneousViews.swift */; };
 		4A2FBDE524DFD195008C666B /* OWWeatherConditionIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2FBDE424DFD195008C666B /* OWWeatherConditionIcon.swift */; };
 		4A35B2C824D6AAC300959A4D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A35B2CC24D6AAC300959A4D /* Localizable.strings */; };
@@ -59,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A24BB4524E96EFA00C1E5DB /* WFUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WFUserData.swift; sourceTree = "<group>"; };
 		4A2FBDE224DEF020008C666B /* DailyForecastMiscellaneousViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastMiscellaneousViews.swift; sourceTree = "<group>"; };
 		4A2FBDE424DFD195008C666B /* OWWeatherConditionIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OWWeatherConditionIcon.swift; path = WeatherForecast/Data/OWWeatherConditionIcon.swift; sourceTree = SOURCE_ROOT; };
 		4A35B2CB24D6AAC300959A4D /* ja */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				4A35B2D024DA142600959A4D /* OWWeatherDataHTTPDownload.swift */,
 				4A50183624D5A0AB00CCB9A7 /* OWWeatherDataSample.swift */,
 				4A50182D24D59A6E00CCB9A7 /* miyazaki.json */,
+				4A24BB4524E96EFA00C1E5DB /* WFUserData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				4A50183524D59D1400CCB9A7 /* DailyForecastRowView.swift in Sources */,
 				4AFBD13224E2571B005BD11E /* PortingViews.swift in Sources */,
 				4A35B2D124DA142600959A4D /* OWWeatherDataHTTPDownload.swift in Sources */,
+				4A24BB4624E96EFA00C1E5DB /* WFUserData.swift in Sources */,
 				4A50183F24D6525700CCB9A7 /* DailyForecastDetailBodyView.swift in Sources */,
 				4A50182B24D59A2D00CCB9A7 /* OWWeatherData.swift in Sources */,
 				4A50171024D0CF8C00CCB9A7 /* ContentView.swift in Sources */,
