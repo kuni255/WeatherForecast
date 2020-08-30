@@ -10,17 +10,17 @@ import CoreLocation
 import os
 import SwiftUI
 
-enum DailyForecastRootViewState{
+enum DailyForecastListWrapViewState{
     case noData
     case retrievingData
     case listingData
 }
 
-struct DailyForecastRootView: View {
-    @ObservedObject var delegate: DailyForecastRootViewDelegate
+struct DailyForecastListWrapView: View {
+    @ObservedObject var delegate: DailyForecastListWrapViewDelegate
     @State private var forecastListView: DailyForecastListView?
     
-    init(delegate: DailyForecastRootViewDelegate){
+    init(delegate: DailyForecastListWrapViewDelegate){
         self.delegate = delegate
         forecastListView = nil
     }

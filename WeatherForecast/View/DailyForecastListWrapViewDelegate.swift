@@ -11,15 +11,15 @@ import Combine
 import CoreLocation
 import SwiftUI
 
-class DailyForecastRootViewDelegate: ObservableObject{
-    @Published var state: DailyForecastRootViewState
+class DailyForecastListWrapViewDelegate: ObservableObject{
+    @Published var state: DailyForecastListWrapViewState
     @Published var data: OWOneCallWeatherData?
     var systemOfMeasurement: OWSystemOfMeasurement
 
     var downloadConfigurations: OWWeatherDataDownloadConfigurations
     let openWeatherAppID: String
     
-    private var _view: DailyForecastRootView? = nil
+    private var _view: DailyForecastListWrapView? = nil
     
     init?(point: CLLocationCoordinate2D, openWeatherAppID: String){
         self.state            = .noData

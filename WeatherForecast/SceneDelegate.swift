@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+import CoreData
 import CoreLocation
 import os
 
@@ -20,7 +21,7 @@ enum LoadCustomPropertiesError: Error{
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var rootViewDelegate: DailyForecastRootViewDelegate?
+    var rootViewDelegate: DailyForecastListWrapViewDelegate?
     
     var targetPoint: CLLocationCoordinate2D?
     var locations: [WFWeatherForecastLocation]
@@ -49,9 +50,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view that provides the window contents.
         if (targetPoint != nil) && (openWeatherAppID != nil){
-            if let delegate = DailyForecastRootViewDelegate.init(point: targetPoint!, openWeatherAppID: openWeatherAppID!){
+            if let delegate = DailyForecastListWrapViewDelegate.init(point: targetPoint!, openWeatherAppID: openWeatherAppID!){
                 rootViewDelegate = delegate
-                let contentView = DailyForecastRootView.init(delegate: rootViewDelegate!)
+                let contentView = DailyForecastListWrapView.init(delegate: rootViewDelegate!)
                 
                 // Use a UIHostingController as window root view controller.
                 if let windowScene = scene as? UIWindowScene {
@@ -99,6 +100,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
     }
     
     func loadProperties()throws{
@@ -155,41 +157,59 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     // User data
-    func getURLOnStorage() -> URL{
-        let fileNameOnStorage = "UserData"
-        let pathToDocDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        return pathToDocDir.appendingPathComponent(fileNameOnStorage)
-    }
-    
-    func loadUserData(){
+    func load()->WFUserData?{
+        var userData: WFUserData
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
+        request.returnsObjectsAsFaults = false
         do{
-            let data = try Data(contentsOf: getURLOnStorage())
-            if let anyLocation = try NSKeyedUnarchiver.unarchivedObject(ofClasses: [WFWeatherForecastLocation.self], from: data){
-                if let _locations = anyLocation as? [WFWeatherForecastLocation]{
-                    locations = _locations
-                }else{
-                    locations = []
-                    os_log(.error, log: .default, "Failed to loca user data")
+            let container = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+            if let userDataList = try container.viewContext.fetch(request) as? [WFUserData]{
+                guard userDataList.count > 0 else{
+                    os_log(.info, log: .default, "No stored user data")
+                    
+                    save()
+                    return nil
                 }
+                
+                userData = userDataList[0]
+                let locArray = userData.locations?.allObjects as! [WFWeatherForecastUserLocation]
+                
+                for location in locArray{
+                    print(location.caption!)
+                }
+                
+                return userData
             }else{
-                locations = []
-                os_log(.error, log: .default, "Failed to load user data")
+                os_log(.error, log: .default, "Failed to fetch user data")
+                return nil
             }
         }catch{
-            locations = []
             os_log(.error, log: .default, "Failed to load user data")
+            return nil
         }
     }
     
-    func saveUserData(){
-        do{
-            let data = try NSKeyedArchiver.archivedData(withRootObject: locations, requiringSecureCoding: true)
-            try data.write(to: getURLOnStorage())
-        }catch{
-            os_log(.error, log: .default, "Failed to archive user's data")
+    func save(){
+        let container = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+        let userData = NSEntityDescription.insertNewObject(forEntityName: "UserData", into: container.viewContext) as? WFUserData
+        guard userData != nil else{
+            os_log(.error, log: .default, "Failed to save data")
+            return
         }
+        let location = NSEntityDescription.insertNewObject(forEntityName: "PreferredLocation", into: container.viewContext) as? WFWeatherForecastUserLocation
+        guard location != nil else{
+            os_log(.error, log: .default, "Failed to save data")
+            return
+        }
+        
+        location!.caption = "Oita"
+        location!.id = UUID()
+        location!.latitude = 33.238194
+        location!.longitude = 131.612667
+        
+        userData!.addToLocations(location!)
+        
+        userData!.defaultLocation = location?.id
     }
-
-
 }
 

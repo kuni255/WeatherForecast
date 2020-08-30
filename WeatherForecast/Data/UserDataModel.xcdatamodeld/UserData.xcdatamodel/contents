@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="PreferredLocation" representedClassName="WFWeatherForecastUserLocation" syncable="YES" codeGenerationType="category">
+        <attribute name="caption" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="userData" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserData" inverseName="locations" inverseEntity="UserData"/>
+    </entity>
+    <entity name="UserData" representedClassName="WFUserData" syncable="YES" codeGenerationType="category">
+        <attribute name="defaultLocation" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="locations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PreferredLocation" inverseName="userData" inverseEntity="PreferredLocation"/>
+    </entity>
+    <elements>
+        <element name="PreferredLocation" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="UserData" positionX="181.09375" positionY="-13.1484375" width="128" height="73"/>
+    </elements>
+</model>

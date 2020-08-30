@@ -1,5 +1,5 @@
 //
-//  WFUserData.swift
+//  WFWeatherForecastUserLocation.swift
 //  Weather Forecast
 //
 //  Created by Kuniie Hayato on 8/29/20.
@@ -8,6 +8,7 @@
 import CoreData
 import Foundation
 
-@objc(WFUserData)
-class WFUserData: NSManagedObject{
+@objc(WFWeatherForecastUserLocation)
+class WFWeatherForecastUserLocation: NSManagedObject{
+    
 }
