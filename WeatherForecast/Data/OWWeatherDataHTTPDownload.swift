@@ -93,44 +93,45 @@ class OWWeatherDataHTTPDownloaderClass{
     }
     
     private func HandleURLSession(data: Data?, response: URLResponse?, error: Error?)->Void{
-        if error == nil{
-            if let httpRes = response as? HTTPURLResponse{
-                if httpRes.statusCode == 200{
-                    if let _data = data{
-                        let dataDecoder = JSONDecoder()
-                        do{
-                            var weatherData = try dataDecoder.decode(OWOneCallWeatherData.self, from: _data)
-                            weatherData.systemOfMeasurement = configurations.systemOfMeasurement
-                            DispatchQueue.main.sync {
-                                successfulCompletionHandler(weatherData)
-                            }
-                        }catch{
-                            let err = OWWeatherDataHTTPDownloadError.dataDecodeFail
-                            DispatchQueue.main.sync {
-                                errorHandler(response, err)
-                            }
+        guard error != nil else{
+            DispatchQueue.main.sync {
+                errorHandler(response, error!)
+            }
+            return
+        }
+        
+        if let httpRes = response as? HTTPURLResponse{
+            if httpRes.statusCode == 200{
+                if let _data = data{
+                    let dataDecoder = JSONDecoder()
+                    do{
+                        var weatherData = try dataDecoder.decode(OWOneCallWeatherData.self, from: _data)
+                        weatherData.systemOfMeasurement = configurations.systemOfMeasurement
+                        DispatchQueue.main.sync {
+                            successfulCompletionHandler(weatherData)
                         }
-                    }else{
-                        let err = OWWeatherDataHTTPDownloadError.dataIsNotAvailable
+                    }catch{
+                        let err = OWWeatherDataHTTPDownloadError.dataDecodeFail
                         DispatchQueue.main.sync {
                             errorHandler(response, err)
                         }
                     }
                 }else{
-                    let err = OWWeatherDataHTTPDownloadError.responseCodeIndicatingFail
+                    let err = OWWeatherDataHTTPDownloadError.dataIsNotAvailable
                     DispatchQueue.main.sync {
                         errorHandler(response, err)
                     }
                 }
             }else{
-                let err = OWWeatherDataHTTPDownloadError.unexpected
+                let err = OWWeatherDataHTTPDownloadError.responseCodeIndicatingFail
                 DispatchQueue.main.sync {
                     errorHandler(response, err)
                 }
             }
         }else{
+            let err = OWWeatherDataHTTPDownloadError.unexpected
             DispatchQueue.main.sync {
-                errorHandler(response, error!)
+                errorHandler(response, err)
             }
         }
     }
